@@ -1,0 +1,6 @@
+[submodule "json_struct"]
+	path = json_struct
+	url = https://github.com/mschoenebeck/json_struct.git
+[submodule "cpp-base64"]
+	path = cpp-base64
+	url = https://github.com/ReneNyffenegger/cpp-base64.git
