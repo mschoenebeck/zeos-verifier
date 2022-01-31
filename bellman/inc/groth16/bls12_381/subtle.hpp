@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdint.h>
-#include "json_struct.h"
+#include <json_struct.h>
 
 using namespace std;
 

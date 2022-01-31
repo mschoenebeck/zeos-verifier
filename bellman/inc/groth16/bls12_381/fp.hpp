@@ -4,7 +4,7 @@
 #include <tuple>
 #include "subtle.hpp"
 #include "util.hpp"
-#include "json_struct.h"
+#include <json_struct.h>
 
 using namespace std;
 
