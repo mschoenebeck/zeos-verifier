@@ -10,7 +10,7 @@ pub fn verify_halo2_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
     let inputs = deserialize_instances(inputs);
     let vk = VerifyingKey::deserialize(&vk.to_vec());
 
-    proof.verify2(&vk, &inputs).is_ok()
+    proof.verify(&vk, &inputs).is_ok()
 }
 
 
