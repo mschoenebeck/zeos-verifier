@@ -8,3 +8,12 @@ crate-type = ["cdylib"]
 
 [dependencies]
 rustzeos = { version = "0.1.0", path = "../rustzeos" }
+pasta_curves = { version = "0.4", path = "../pasta_curves" }
+wasm-bindgen = "0.2.79"
+byteorder = "1"
+
+[dev-dependencies]
+zeos-orchard = { path = "../zeos-orchard"}
+ff = "0.12"
+halo2_proofs = { version = "0.2", path = "../halo2/halo2_proofs" }
+rand = "0.8"
