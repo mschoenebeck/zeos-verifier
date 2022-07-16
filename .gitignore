@@ -1,2 +1,8 @@
 zeos.js
 zeos.wasm
+
+
+# Added by cargo
+
+/target
+Cargo.lock

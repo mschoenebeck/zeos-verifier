@@ -1,0 +1,10 @@
+[package]
+name = "zeos-verifier"
+version = "0.1.0"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+rustzeos = { version = "0.1.0", path = "../rustzeos" }
