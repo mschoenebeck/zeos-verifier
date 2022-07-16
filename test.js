@@ -1,4 +1,4 @@
-var factory = require('./zeos.js');
+var factory = require('./zeos_groth16.js');
 
 factory().then((instance) => {
   instance._sayHi(); // direct calling works
