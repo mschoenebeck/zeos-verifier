@@ -6,6 +6,10 @@ use wasm_bindgen::prelude::wasm_bindgen;
 #[no_mangle]
 pub fn verify_halo2_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
 {
+    //log("Hello from Rust!");
+    //log_u32(vk.to_vec().len() as u32);
+    //log_many("Logging", "many values!");
+
     let proof = Proof::new(proof.to_vec());
     let inputs = deserialize_instances(inputs);
     let vk = VerifyingKey::deserialize(&vk.to_vec());
@@ -13,6 +17,24 @@ pub fn verify_halo2_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
     proof.verify(&vk, &inputs).is_ok()
 }
 
+// from: https://stackoverflow.com/questions/66836479/calling-console-log-from-rust-wasm32-wasi-without-the-need-for-ssvm-ssvmup
+#[wasm_bindgen]
+extern "C" {
+    // Use `js_namespace` here to bind `console.log(..)` instead of just
+    // `log(..)`
+    #[wasm_bindgen(js_namespace = console)]
+    fn log(s: &str);
+
+    // The `console.log` is quite polymorphic, so we can bind it with multiple
+    // signatures. Note that we need to use `js_name` to ensure we always call
+    // `log` in JS.
+    #[wasm_bindgen(js_namespace = console, js_name = log)]
+    fn log_u32(a: u32);
+
+    // Multiple arguments too!
+    #[wasm_bindgen(js_namespace = console, js_name = log)]
+    fn log_many(a: &str, b: &str);
+}
 
 #[cfg(test)]
 mod tests {
@@ -97,6 +119,7 @@ mod tests {
     }
 
     #[test]
+    // cargo test --package zeos-verifier --lib -- tests::test_verify_halo2_proof --exact --nocapture <
     fn test_verify_halo2_proof()
     {
         let mut rng = OsRng;
@@ -115,6 +138,10 @@ mod tests {
 
         let instances: Vec<_> = instances.iter().map(|i| i.to_halo2_instance_vec()).collect();
         let inputs = serialize_instances(&instances);
+
+        //println!("proof = {:?}", proof.as_ref());
+        //println!("inputs = {:?}", inputs);
+        //println!("vk = {:?}", vk_arr);
 
         assert_eq!(true, verify_halo2_proof(proof.as_ref(), &inputs, &vk_arr));
     }

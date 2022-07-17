@@ -7,10 +7,13 @@ edition = "2018"
 crate-type = ["cdylib"]
 
 [dependencies]
-rustzeos = { version = "0.1.0", path = "../rustzeos" }
+rustzeos = { version = "0.1.0", path = "../rustzeos"}#, features = ["multicore"]}
 pasta_curves = { version = "0.4", path = "../pasta_curves" }
-wasm-bindgen = "0.2.79"
+wasm-bindgen = { version = "0.2.79" }
 byteorder = "1"
+#zeos-orchard = { path = "../zeos-orchard"}
+#wasm-bindgen-test = "0.2"
+#wasm-bindgen-rayon = "1.0"
 
 [dev-dependencies]
 zeos-orchard = { path = "../zeos-orchard"}
