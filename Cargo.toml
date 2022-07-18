@@ -8,15 +8,18 @@ crate-type = ["cdylib"]
 
 [dependencies]
 rustzeos = { version = "0.1.0", path = "../rustzeos"}#, features = ["multicore"]}
-pasta_curves = { version = "0.4", path = "../pasta_curves" }
 wasm-bindgen = { version = "0.2.79" }
-byteorder = "1"
-#zeos-orchard = { path = "../zeos-orchard"}
 #wasm-bindgen-test = "0.2"
 #wasm-bindgen-rayon = "1.0"
 
 [dev-dependencies]
 zeos-orchard = { path = "../zeos-orchard"}
-ff = "0.12"
 halo2_proofs = { version = "0.2", path = "../halo2/halo2_proofs" }
+pasta_curves = { version = "0.4", path = "../pasta_curves" }
+bellman = { version = "0.10.0", path = "../bellman" }
+bls12_381 = { version = "0.5" }
 rand = "0.8"
+sha2 = "0.9.5"
+# two different versions of dependency 'ff' used for halo2 and groth16.
+ff = "0.12" # halo2
+#ff = "0.10.1" # groth16
