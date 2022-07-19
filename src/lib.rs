@@ -29,13 +29,6 @@ pub fn verify_groth16_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
 #[cfg(test)]
 mod tests
 {
-    /// NOTE:
-    /// Because of different versions of dependency 'ff' used in halo2 and groth16 the code
-    /// for the other proving system needs to be commented out in order for the tests module
-    /// to compile. TODO: solve this by having both proving systems use same ff dependency.
-    /// Could be solved by updating bellman crate to version 0.13.x
-    
-    /* comment this module out when testing groth16 */
     mod halo2
     {
         /// This is the main example of the halo2 crate taken from:
@@ -412,7 +405,6 @@ mod tests
         }
     }
     
-    /* comment this module out when testing halo2 
     mod groth16
     {
         /// This is the main example of the bellman crate taken from:
@@ -541,5 +533,4 @@ mod tests
             assert!(verify_groth16_proof(&proof_bytes, &inputs_bytes, &vk_bytes));
         }
     }
-    */
 }

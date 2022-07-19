@@ -19,5 +19,4 @@ bls12_381 = { version = "0.5" }
 rand = "0.8"
 sha2 = "0.9.5"
 # two different versions of dependency 'ff' used for halo2 and groth16.
-ff = "0.12" # halo2
-#ff = "0.10.1" # groth16
+ff = "0.10.1" # groth16
