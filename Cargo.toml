@@ -13,9 +13,7 @@ wasm-bindgen = { version = "0.2.79" }
 #wasm-bindgen-rayon = "1.0"
 
 [dev-dependencies]
-zeos-orchard = { path = "../zeos-orchard"}
 halo2_proofs = { version = "0.2", path = "../halo2/halo2_proofs" }
-pasta_curves = { version = "0.4", path = "../pasta_curves" }
 bellman = { version = "0.10.0", path = "../bellman" }
 bls12_381 = { version = "0.5" }
 rand = "0.8"
