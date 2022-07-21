@@ -9,7 +9,7 @@ See also:
 ## Description
 This JavaScript handler ('zeos_verify_proof.js') is the vCPU handler of the [ZEOS Token Contract](https://github.com/mschoenebeck/thezeostoken). It supports zk-SNARK verification for both: The [Groth16](https://electriccoin.co/blog/bellman-zksnarks-in-rust/) proving system as well as [Halo2](https://zcash.github.io/halo2/index.html).
 
-This verifier is built for [EOSIO](https://eos.io/) and [Liquidapps' DAPP Network](https://liquidapps.io/) services.
+This verifier is built for [EOSIO](https://eos.io/) utilizing [Liquidapps' DAPP Network](https://liquidapps.io/) services.
 
 ## Getting Started
 
