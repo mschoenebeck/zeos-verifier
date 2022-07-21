@@ -36,6 +36,13 @@ Build the project as Rust library:
 cargo build
 ```
 
+Run the unit tests:
+
+```
+cargo test --package zeos-verifier --lib -- tests::groth16::test_verify_groth16_proof --exact --nocapture
+cargo test --package zeos-verifier --lib -- tests::halo2::test_verify_halo2_proof --exact --nocapture
+```
+
 Build the project as wasm32 library:
 
 ```
@@ -45,8 +52,7 @@ make
 Run the unit tests:
 
 ```
-cargo test --package zeos-verifier --lib -- tests::groth16::test_verify_groth16_proof --exact --nocapture
-cargo test --package zeos-verifier --lib -- tests::halo2::test_verify_halo2_proof --exact --nocapture
+make run
 ```
 
 ### Dependencies
