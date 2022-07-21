@@ -388,19 +388,22 @@ mod tests
                 }
             }
 
+            // create keys and proof
             let vk = VerifyingKey::build(circuit_vk, k);
             let pk = ProvingKey::build(circuit_pk, k);
             let proof = Proof::create(&pk, &[circuit], &[Instance(vec![public_inputs.clone()])], &mut rng).unwrap();
 
+            // serialize data structs to byte arrays
             let mut vk_bytes = Vec::new();
             vk.serialize(&mut vk_bytes);
             let instances: Vec<_> = Instance(vec![public_inputs]).to_halo2_instance_vec();
             let inputs_bytes = serialize_instances(&vec![instances]);
 
-            //println!("proof_bytes = {:?}", proof.as_ref());
-            //println!("inputs_bytes = {:?}", inputs_bytes);
-            //println!("vk_bytes = {:?}", vk_bytes);
+            println!("proof_bytes = {:?}", proof.as_ref());
+            println!("inputs_bytes = {:?}", inputs_bytes);
+            println!("vk_bytes = {:?}", vk_bytes);
 
+            // Check the proof!
             assert!(verify_halo2_proof(proof.as_ref(), &inputs_bytes, &vk_bytes));
         }
     }
@@ -519,15 +522,16 @@ mod tests
             let hash_bits = multipack::bytes_to_bits_le(&hash);
             let inputs: Vec<bls12_381::Scalar> = multipack::compute_multipacking(&hash_bits);
             
+            // serialize data structs to byte arrays
             let mut vk_bytes = Vec::<u8>::new();
             assert!(params.vk.write(&mut vk_bytes).is_ok());
             let mut proof_bytes = Vec::<u8>::new();
             assert!(proof.write(&mut proof_bytes).is_ok());
             let inputs_bytes = serialize_inputs(&inputs);
 
-            //println!("proof_bytes = {:?}", proof_bytes);
-            //println!("inputs_bytes = {:?}", inputs_bytes);
-            //println!("vk_bytes = {:?}", vk_bytes);
+            println!("proof_bytes = {:?}", proof_bytes);
+            println!("inputs_bytes = {:?}", inputs_bytes);
+            println!("vk_bytes = {:?}", vk_bytes);
 
             // Check the proof!
             assert!(verify_groth16_proof(&proof_bytes, &inputs_bytes, &vk_bytes));
