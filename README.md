@@ -47,6 +47,7 @@ make
 ### Dependencies
 
 - [Rust Toolchain](https://www.rust-lang.org/tools/install)
+- [Node.js](https://nodejs.org/en/)
 
 ## Help
 If you need help join us on [Telegram](https://t.me/ZeosOnEos).
