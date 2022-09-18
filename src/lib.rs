@@ -399,9 +399,9 @@ mod tests
             let instances: Vec<_> = Instance(vec![public_inputs]).to_halo2_instance_vec();
             let inputs_bytes = serialize_instances(&vec![instances]);
 
-            println!("proof_bytes = {:?}", proof.as_ref());
-            println!("inputs_bytes = {:?}", inputs_bytes);
-            println!("vk_bytes = {:?}", vk_bytes);
+            println!("proof_bytes = {:02X?}", proof.as_ref());
+            println!("inputs_bytes = {:02X?}", inputs_bytes);
+            println!("vk_bytes = {:02X?}", vk_bytes);
 
             // Check the proof!
             assert!(verify_halo2_proof(proof.as_ref(), &inputs_bytes, &vk_bytes));
