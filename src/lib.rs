@@ -1,4 +1,4 @@
-use rustzeos::{halo2, groth16};
+use rustzeos::{halo2, groth16, zeos};
 use wasm_bindgen::prelude::wasm_bindgen;
 
 #[wasm_bindgen]
@@ -24,6 +24,18 @@ pub fn verify_groth16_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
     let pvk = groth16::prepare_verifying_key(&vk);
 
     groth16::verify_proof(&pvk, &proof, &inputs)
+}
+
+#[wasm_bindgen]
+#[allow(non_snake_case)]
+#[no_mangle]
+pub fn verify_zeos_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
+{
+    let proof = halo2::Proof::new(proof.to_vec());
+    let inputs = zeos::deserialize_instances(inputs);
+    let vk = halo2::VerifyingKey::deserialize(&vk.to_vec());
+
+    halo2::verify_proof(&vk, &proof, &inputs)
 }
 
 #[cfg(test)]
