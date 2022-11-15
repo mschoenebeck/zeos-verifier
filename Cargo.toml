@@ -1,10 +1,10 @@
 [package]
-name = "zeos-verifier"
+name = "zeos_verifier"
 version = "0.1.0"
 edition = "2018"
 
 [lib]
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "lib"]
 
 [dependencies]
 rustzeos = { version = "0.1.0", path = "../rustzeos"}#, features = ["multicore"]}
