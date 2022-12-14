@@ -14,7 +14,7 @@ wasm-bindgen = { version = "0.2.79" }
 
 [dev-dependencies]
 halo2_proofs = { version = "0.2", path = "../halo2/halo2_proofs" }
-bellman = { version = "0.10.0", path = "../bellman" }
+bellman = { version = "0.13.1", path = "../bellman" }
 bls12_381 = { version = "0.5" }
 rand = "0.8"
 sha2 = "0.9.5"
