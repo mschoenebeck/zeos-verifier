@@ -411,9 +411,14 @@ mod tests
             let instances: Vec<_> = Instance(vec![public_inputs]).to_halo2_instance_vec();
             let inputs_bytes = serialize_instances(&vec![instances]);
 
-            println!("proof_bytes = {:02X?}", proof.as_ref());
-            println!("inputs_bytes = {:02X?}", inputs_bytes);
-            println!("vk_bytes = {:02X?}", vk_bytes);
+            // as byte arrays
+            //println!("proof_bytes = {:02X?}", proof.as_ref());
+            //println!("inputs_bytes = {:02X?}", inputs_bytes);
+            //println!("vk_bytes = {:02X?}", vk_bytes);
+            // as hex strings
+            println!("proof_str = {}", hex::encode(proof.as_ref()));
+            println!("inputs_str = {}", hex::encode(&inputs_bytes));
+            println!("vk_str = {}", hex::encode(&vk_bytes));
 
             // Check the proof!
             assert!(verify_halo2_proof(proof.as_ref(), &inputs_bytes, &vk_bytes));
@@ -541,9 +546,14 @@ mod tests
             assert!(proof.write(&mut proof_bytes).is_ok());
             let inputs_bytes = serialize_inputs(&inputs);
 
-            println!("proof_bytes = {:?}", proof_bytes);
-            println!("inputs_bytes = {:?}", inputs_bytes);
-            println!("vk_bytes = {:?}", vk_bytes);
+            // as byte arrays
+            //println!("proof_bytes = {:?}", proof_bytes);
+            //println!("inputs_bytes = {:?}", inputs_bytes);
+            //println!("vk_bytes = {:?}", vk_bytes);
+            // as hex strings
+            println!("proof_str = {}", hex::encode(&proof_bytes));
+            println!("inputs_str = {}", hex::encode(&inputs_bytes));
+            println!("vk_str = {}", hex::encode(&vk_bytes));
 
             // Check the proof!
             assert!(verify_groth16_proof(&proof_bytes, &inputs_bytes, &vk_bytes));
