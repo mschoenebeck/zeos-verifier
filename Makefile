@@ -1,10 +1,10 @@
-all: ./pkg
+all: index.node
 
-./pkg:
-	wasm-pack build --target nodejs
+./index.node:
+	npm i
 
-clean: ./pkg
-	rm -rf ./pkg
+clean: ./index.node
+	rm -rf ./index.node
 
-run: ./pkg test.js
+run: ./index.node test.js
 	node test.js

@@ -43,7 +43,7 @@ cargo test --package zeos-verifier --lib -- tests::groth16::test_verify_groth16_
 cargo test --package zeos-verifier --lib -- tests::halo2::test_verify_halo2_proof --exact --nocapture
 ```
 
-Build the project as wasm32 library:
+Build the project as NodeJS extension module:
 
 ```
 make

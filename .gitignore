@@ -1,8 +1,5 @@
-zeos.js
-zeos.wasm
-node_modules/
-
-# Added by cargo
-
-/target
-Cargo.lock
+target
+index.node
+**/node_modules
+**/.DS_Store
+npm-debug.log*
