@@ -2,7 +2,7 @@ use hex::FromHexError;
 use neon::prelude::*;
 use rustzeos::{halo2, groth16, zeos};
 
-fn verify_halo2_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
+pub fn verify_halo2_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
 {
     let proof = halo2::Proof::new(proof.to_vec());
     let inputs = halo2::deserialize_instances(inputs);
@@ -11,7 +11,7 @@ fn verify_halo2_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
     halo2::verify_proof(&vk, &proof, &inputs)
 }
 
-fn verify_groth16_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
+pub fn verify_groth16_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
 {
     let proof = groth16::Proof::read(proof).unwrap();
     let inputs = groth16::deserialize_inputs(inputs);
@@ -21,7 +21,7 @@ fn verify_groth16_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
     groth16::verify_proof(&pvk, &proof, &inputs)
 }
 
-fn verify_zeos_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
+pub fn verify_zeos_proof(proof: &[u8], inputs: &[u8], vk: &[u8]) -> bool
 {
     let proof = halo2::Proof::new(proof.to_vec());
     let inputs = zeos::deserialize_instances(inputs);

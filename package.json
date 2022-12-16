@@ -1,5 +1,5 @@
 {
-  "name": "zeos-verifier-ne",
+  "name": "zeos_verifier",
   "version": "0.1.0",
   "description": "",
   "main": "index.node",
