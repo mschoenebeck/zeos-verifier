@@ -727,7 +727,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "zeos-verifier"
+name = "zeos_verifier"
 version = "0.1.0"
 dependencies = [
  "hex",
