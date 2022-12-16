@@ -10,3 +10,12 @@ crate-type = ["cdylib"]
 hex = "0.4.3"
 rustzeos = { version = "0.1.0", path = "../rustzeos", features = ["multicore"]}
 neon = { version = "0.10", default-features = false, features = ["napi-6"] }
+
+[dev-dependencies]
+halo2_proofs = { version = "0.2", path = "../halo2/halo2_proofs" }
+bellman = { version = "0.13.1", path = "../bellman" }
+bls12_381 = { version = "0.7" }
+rand = "0.8"
+sha2 = "0.9.5"
+ff = "0.12"
+hex = "0.4.3"
