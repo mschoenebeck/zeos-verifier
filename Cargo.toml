@@ -1,5 +1,5 @@
 [package]
-name = "zeos-verifier-ne"
+name = "zeos-verifier"
 version = "0.1.0"
 edition = "2018"
 
